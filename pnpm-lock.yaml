@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.6.6
       '@commitlint/config-conventional': ^17.6.6
+      '@rollup/plugin-alias': ^5.0.0
       '@rollup/plugin-commonjs': ^25.0.2
       '@rollup/plugin-replace': ^5.0.2
       '@typescript-eslint/eslint-plugin': ^5.61.0
@@ -27,6 +28,7 @@ importers:
     devDependencies:
       '@commitlint/cli': registry.npmjs.org/@commitlint/cli/17.6.6
       '@commitlint/config-conventional': registry.npmjs.org/@commitlint/config-conventional/17.6.6
+      '@rollup/plugin-alias': registry.npmjs.org/@rollup/plugin-alias/5.0.0_rollup@3.26.2
       '@rollup/plugin-commonjs': registry.npmjs.org/@rollup/plugin-commonjs/25.0.2_rollup@3.26.2
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/5.61.0_24v3duij7ab7rtbfz4qzw7dc5u
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/5.61.0_iqf7tbmerllfqanu4l3d6aqdn4
@@ -460,6 +462,22 @@ packages:
       open: registry.npmjs.org/open/9.1.0
       picocolors: registry.npmjs.org/picocolors/1.0.0
       tslib: registry.npmjs.org/tslib/2.6.0
+    dev: true
+
+  registry.npmjs.org/@rollup/plugin-alias/5.0.0_rollup@3.26.2:
+    resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@rollup/plugin-alias/-/plugin-alias-5.0.0.tgz}
+    id: registry.npmjs.org/@rollup/plugin-alias/5.0.0
+    name: '@rollup/plugin-alias'
+    version: 5.0.0
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      rollup: registry.npmjs.org/rollup/3.26.2
+      slash: registry.npmjs.org/slash/4.0.0
     dev: true
 
   registry.npmjs.org/@rollup/plugin-commonjs/25.0.2_rollup@3.26.2:
@@ -2944,6 +2962,13 @@ packages:
     name: slash
     version: 3.0.0
     engines: {node: '>=8'}
+    dev: true
+
+  registry.npmjs.org/slash/4.0.0:
+    resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/slash/-/slash-4.0.0.tgz}
+    name: slash
+    version: 4.0.0
+    engines: {node: '>=12'}
     dev: true
 
   registry.npmjs.org/sort-keys/2.0.0:
