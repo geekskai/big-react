@@ -5,12 +5,7 @@ function App() {
 	const [num, setNum] = useState(200);
 
 	window.setNum = setNum;
-	return (
-		<div>
-			{/* <Child /> */}
-			{num}
-		</div>
-	);
+	return num === 3 ? <Child /> : <div>{num}</div>;
 }
 
 function Child() {
