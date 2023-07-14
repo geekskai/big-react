@@ -127,7 +127,7 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		newChild: Array<any>
 	) {
 		//  最后一个可复用的fiber 在current中的index
-		let lastPlacedIndex = 0;
+		let lastPlacedIndex: number = 0;
 		// 创建的最后一个fiber
 		let lastNewFiber: FiberNode | null = null;
 		// 创建的第一个fiber
@@ -204,7 +204,7 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		index: number,
 		element: any
 	): FiberNode | null {
-		const keyToUse = element.key !== null ? element.key : element.index;
+		const keyToUse = element.key !== null ? element.key : index;
 		// 更新之前存在对应的节点
 		const before = existingChildren.get(keyToUse);
 
@@ -258,15 +258,14 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 
 				default:
 					if (__DEV__) {
-						console.warn(`未实现的reconcile 类型是：${newChild}`);
+						console.warn('未实现的reconcile类型', newChild);
 					}
 					break;
 			}
-		}
-
-		// 多节点的情况 ul > li*3
-		if (Array.isArray(newChild)) {
-			return reconcileChildrenArray(returnFiber, currentFiber, newChild);
+			// 多节点的情况 ul > li*3
+			if (Array.isArray(newChild)) {
+				return reconcileChildrenArray(returnFiber, currentFiber, newChild);
+			}
 		}
 
 		// HostText
@@ -282,7 +281,7 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		}
 
 		if (__DEV__) {
-			console.warn(`未实现的reconcile 类型是：${newChild}`);
+			console.warn('未实现的reconcile类型：', newChild);
 		}
 
 		return null;

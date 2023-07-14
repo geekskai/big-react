@@ -2,9 +2,15 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
 function App() {
-	const [num, setNum] = useState(200);
+	const [num, setNum] = useState(100);
 
-	return <div onClickCapture={() => setNum(num + 1)}>{num}</div>;
+	return (
+		<ul onClickCapture={() => setNum(num + 1)}>
+			{num % 2 === 0
+				? [<li key="1">1</li>, <li key="2">2</li>, <li key="3">3</li>]
+				: [<li key="3">3</li>, <li key="2">2</li>, <li key="1">1</li>]}
+		</ul>
+	);
 }
 
 // function Child() {
