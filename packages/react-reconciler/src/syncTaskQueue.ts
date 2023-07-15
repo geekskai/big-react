@@ -1,7 +1,7 @@
 let syncQueue: ((...args: any) => void)[] | null = null;
 
 //  用于保证多次更新，syncQueue只遍历执行一次
-let isFlushingSyncQueue: boolean = false;
+let isFlushingSyncQueue = false;
 
 export function scheduleSyncCallback(callback: (...args: any) => void) {
 	if (syncQueue === null) {
