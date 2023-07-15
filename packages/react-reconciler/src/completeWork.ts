@@ -10,6 +10,7 @@ import { FiberNode } from './fiber';
 import {
 	FunctionComponent,
 	HostComponent,
+	Fragment,
 	HostRoot,
 	HostText
 } from './workTags';
@@ -66,12 +67,9 @@ export const completeWork = (wip: FiberNode) => {
 			return null;
 
 		case HostRoot:
-			bubbleProperties(wip);
-
-			return null;
 		case FunctionComponent:
+		case Fragment:
 			bubbleProperties(wip);
-
 			return null;
 
 		default:
