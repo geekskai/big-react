@@ -14,6 +14,7 @@ importers:
       '@rollup/plugin-replace': ^5.0.2
       '@types/react': ^18.2.14
       '@types/react-dom': ^18.2.6
+      '@types/scheduler': ^0.16.3
       '@typescript-eslint/eslint-plugin': ^5.61.0
       '@typescript-eslint/parser': ^5.61.0
       '@vitejs/plugin-react': ^4.0.1
@@ -31,10 +32,12 @@ importers:
       rollup: ^3.26.2
       rollup-plugin-generate-package-json: ^3.2.0
       rollup-plugin-typescript2: ^0.35.0
+      scheduler: ^0.23.0
       typescript: ^5.1.6
       vite: ^4.4.0
     dependencies:
       '@rollup/plugin-replace': registry.npmjs.org/@rollup/plugin-replace/5.0.2_rollup@3.26.2
+      scheduler: registry.npmjs.org/scheduler/0.23.0
     devDependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.22.8
       '@babel/plugin-transform-react-jsx': registry.npmjs.org/@babel/plugin-transform-react-jsx/7.22.5_@babel+core@7.22.8
@@ -45,6 +48,7 @@ importers:
       '@rollup/plugin-commonjs': registry.npmjs.org/@rollup/plugin-commonjs/25.0.2_rollup@3.26.2
       '@types/react': registry.npmjs.org/@types/react/18.2.14
       '@types/react-dom': registry.npmjs.org/@types/react-dom/18.2.6
+      '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.3
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/5.61.0_24v3duij7ab7rtbfz4qzw7dc5u
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/5.61.0_iqf7tbmerllfqanu4l3d6aqdn4
       '@vitejs/plugin-react': registry.npmjs.org/@vitejs/plugin-react/4.0.3_vite@4.4.3
@@ -5584,7 +5588,6 @@ packages:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz}
     name: js-tokens
     version: 4.0.0
-    dev: true
 
   registry.npmjs.org/js-yaml/3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.1.tgz}
@@ -5838,6 +5841,15 @@ packages:
     name: lodash
     version: 4.17.21
     dev: true
+
+  registry.npmjs.org/loose-envify/1.4.0:
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz}
+    name: loose-envify
+    version: 1.4.0
+    hasBin: true
+    dependencies:
+      js-tokens: registry.npmjs.org/js-tokens/4.0.0
+    dev: false
 
   registry.npmjs.org/lru-cache/10.0.0:
     resolution: {integrity: sha512-svTf/fzsKHffP42sujkO/Rjs37BCIsQVRCeNYIm9WN8rgT7ffoUnRtZCqU+6BqcSBdv8gwJeTz8knJpgACeQMw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/lru-cache/-/lru-cache-10.0.0.tgz}
@@ -6733,6 +6745,14 @@ packages:
     dependencies:
       xmlchars: registry.npmjs.org/xmlchars/2.2.0
     dev: true
+
+  registry.npmjs.org/scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz}
+    name: scheduler
+    version: 0.23.0
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+    dev: false
 
   registry.npmjs.org/semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/semver/-/semver-5.7.1.tgz}
