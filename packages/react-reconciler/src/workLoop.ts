@@ -38,7 +38,7 @@ let workInProgress: FiberNode | null = null;
 let wipRootRenderLane: Lane = NoLane;
 
 // 防止执行commit的时候，执行多次操作
-let rootDoesHasPassiveEffects: Boolean = false;
+let rootDoesHasPassiveEffects = false;
 
 function prepareFreshStack(root: FiberRootNode, lane: Lane) {
 	workInProgress = createWorkInProgress(root.current, {});
