@@ -34,6 +34,11 @@ export function getHightPriorityLane(lanes: Lanes): Lane {
 	return lanes & -lanes;
 }
 
+//  判断优先级是否足够 比较一个lane 是否在一个lanes中才能算足够
+export function isSubsetOfLanes(set: Lanes, subset: Lane) {
+	return (set & subset) === subset;
+}
+
 // 从一个lanes中移除某个lane
 export function markRootFinished(root: FiberRootNode, lane: Lane) {
 	root.pendingLanes &= ~lane;

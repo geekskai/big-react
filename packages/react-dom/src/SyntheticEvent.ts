@@ -2,7 +2,7 @@
 
 import { Container } from 'hostConfig';
 import {
-	unstable_IdlePriority,
+	unstable_ImmediatePriority,
 	unstable_NormalPriority,
 	unstable_UserBlockingPriority,
 	unstable_runWithPriority
@@ -146,7 +146,7 @@ function eventTypeToSchedulerPriority(eventType: string) {
 		case 'click':
 		case 'keydown':
 		case 'keyup':
-			return unstable_IdlePriority;
+			return unstable_ImmediatePriority;
 		case 'scroll':
 			return unstable_UserBlockingPriority;
 		default:
