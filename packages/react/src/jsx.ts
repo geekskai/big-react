@@ -38,8 +38,8 @@ export const Fragment = REACT_FRAGMENT_TYPE;
 
 export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
 	let key: Key = null;
-	const props: Props = {};
 	let ref: Ref = null;
+	const props: Props = {};
 
 	for (const prop in config) {
 		const value = config[prop];
@@ -79,8 +79,8 @@ export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
 };
 export const jsxDEV = (type: ElementType, config: any) => {
 	let key: Key = null;
-	const props: Props = {};
 	let ref: Ref = null;
+	const props: Props = {};
 
 	for (const prop in config) {
 		const value = config[prop];

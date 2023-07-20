@@ -341,7 +341,7 @@ function updateFragment(
 	returnFiber: FiberNode,
 	current: FiberNode | undefined,
 	elements: any[],
-	key: Key,
+	key: string,
 	existingChildren: ExistingChildren
 ) {
 	let fiber;

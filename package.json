@@ -6,8 +6,9 @@
 	"scripts": {
 		"lint": "eslint --ext .ts,.tsx,.js,.jsx --fix --quiet ./packages",
 		"build:dev": "rimraf dist && rollup --bundleConfigAsCjs --config scripts/rollup/dev.config.js",
-		"demo:test-fc": "vite serve demos/test-fc --config scripts/vite/vite.config.js --force",
-		"demo:test-transition": "vite serve demos/transition --config scripts/vite/vite.config.js --force",
+		"demo:test-fc": "vite serve demos/test-fc --config demos/vite.config.js --force",
+		"demo:test-transition": "vite serve demos/transition --config demos/vite.config.js --force",
+		"demo:test-ref": "vite serve demos/ref --config demos/vite.config.js --force",
 		"test": "jest --config scripts/jest/jest.config.js"
 	},
 	"keywords": [],

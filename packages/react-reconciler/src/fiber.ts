@@ -17,7 +17,7 @@ export class FiberNode {
 	pendingProps: Props;
 	key: Key;
 	stateNode: any;
-	ref: Ref;
+	ref: Ref | null;
 
 	return: FiberNode | null;
 	sibling: FiberNode | null;
@@ -126,6 +126,9 @@ export const createWorkInProgress = (
 	wip.type = current.type;
 	wip.updateQueue = current.updateQueue;
 	wip.child = current.child;
+	wip.ref = current.ref;
+
+	// 数据
 	wip.memoizedProps = current.memoizedProps;
 	wip.memoizedState = current.memoizedState;
 
@@ -133,7 +136,7 @@ export const createWorkInProgress = (
 };
 
 export function createFiberFromElement(element: ReactElementType): FiberNode {
-	const { type, key, props } = element;
+	const { type, key, props, ref } = element;
 
 	let fiberTag: WorkTag = FunctionComponent;
 
@@ -146,6 +149,8 @@ export function createFiberFromElement(element: ReactElementType): FiberNode {
 
 	const fiber = new FiberNode(fiberTag, props, key);
 	fiber.type = type;
+	fiber.ref = ref;
+	// fiber.lanes = lanes
 	return fiber;
 }
 
