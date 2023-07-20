@@ -23,7 +23,7 @@ export function mergeLanes(laneA: Lane, laneB: Lane): Lanes {
 }
 
 export function requestUpdateLane() {
-	// 从上下文环境获取Scheduler的优先级
+	// 从上下文环境获取Scheduler的优先级  默认是并发更新
 	const currentSchedulerPriority = unstable_getCurrentPriorityLevel();
 	const lane = schedulerPriorityToLane(currentSchedulerPriority);
 	return lane;
