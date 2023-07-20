@@ -6,17 +6,18 @@ import {
 	HostComponent,
 	HostRoot,
 	Fragment,
-	HostText
+	HostText,
+	ContextProvider
 } from './workTags';
 import { mountChildFibers, reconcileChildFibers } from './childFibers';
 import { renderWithHooks } from './fiberHooks';
 import { Lane } from './fiberLeans';
 import { Ref } from './fiberFlags';
+import { pushProvider } from './fiberContext';
 
 // 递归中的递阶段
 export const beginWork = (workInProgress: FiberNode, renderLane: Lane) => {
 	//比较，然后返回子fiberNode
-
 	switch (workInProgress.tag) {
 		case HostRoot:
 			return updateHostRoot(workInProgress, renderLane);
@@ -33,6 +34,9 @@ export const beginWork = (workInProgress: FiberNode, renderLane: Lane) => {
 		case Fragment:
 			return updateFragment(workInProgress);
 
+		case ContextProvider:
+			return updateContextProvider(workInProgress);
+
 		default:
 			if (__DEV__) {
 				console.warn('在beginWork 中，出现未实现的类型！');
@@ -42,6 +46,23 @@ export const beginWork = (workInProgress: FiberNode, renderLane: Lane) => {
 
 	return null;
 };
+
+function updateContextProvider(workInProgress: FiberNode) {
+	const providerType = workInProgress.type;
+	console.log(`🚀 ~ file: beginWork.ts:51 ~ providerType:`, providerType);
+
+	const context = providerType._context;
+
+	const newProps = workInProgress.pendingProps;
+	console.log(`🚀 ~ file: beginWork.ts:57 ~ newProps:`, newProps);
+
+	pushProvider(context, newProps.value);
+
+	const nextChildren = newProps.children;
+
+	reconcileChildren(workInProgress, nextChildren);
+	return workInProgress.child;
+}
 
 function updateFragment(workInProgress: FiberNode) {
 	const nextChildren = workInProgress.pendingProps;
