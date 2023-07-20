@@ -93,11 +93,16 @@ function ensureRootIsScheduled(root: FiberRootNode) {
 
 	let newCallbackNode = null;
 
+	if (__DEV__) {
+		console.log(
+			`在${updateLane === SyncLane ? '微' : '宏'}任务中调度，优先级：`,
+			updateLane
+		);
+	}
+
 	if (updateLane === SyncLane) {
 		// 同步优先级 用微任务调度
-		if (__DEV__) {
-			console.log('在微任务中调度，优先级：', updateLane);
-		}
+
 		//   将每次产生的更新就会将 render阶段的入口函数performSyncWorkOnRoot 放进一个syncQueue数组队列中，
 		scheduleSyncCallback(performSyncWorkOnRoot.bind(null, root));
 		//  通过微任务的形式依次循环执行，
