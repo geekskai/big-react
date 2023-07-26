@@ -348,6 +348,7 @@ function completeUnitOfWork(fiber: FiberNode) {
 		const sibling = node.sibling;
 
 		if (sibling !== null) {
+			// 如果存在sibling，那么sibling 开始进入beginWork
 			workInProgress = sibling;
 
 			return;
@@ -356,6 +357,7 @@ function completeUnitOfWork(fiber: FiberNode) {
 		workInProgress = node;
 	} while (node !== null);
 }
+//  从传入的fiber开始，向上查找，直到找到root为止
 function markUpdateFromFiberToRoot(fiber: FiberNode) {
 	let node = fiber;
 	let parent = node.return;
