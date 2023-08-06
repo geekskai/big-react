@@ -72,36 +72,6 @@ export const commitLayoutEffects = commitEffects(
 	commitLayoutEffectsOnFiber
 );
 
-// export const commitMutationEffects = (
-// 	finishedWork: FiberNode,
-// 	root: FiberRootNode
-// ) => {
-// 	nextEffect = finishedWork;
-// 	while (nextEffect !== null) {
-// 		//向下遍历
-// 		const child: FiberNode | null = nextEffect.child;
-// 		if (
-// 			(nextEffect.subtreeFlags & (MutationMask | PassiveMask)) !== NoFlags &&
-// 			child !== null
-// 		) {
-// 			// 子节点存在对应mutation的操作
-// 			nextEffect = child;
-// 		} else {
-// 			// 要么找到底了，要么不存在mutation，向上遍历DFS
-// 			up: while (nextEffect !== null) {
-// 				commitMutationEffectsOnFiber(nextEffect, root);
-// 				const sibling: FiberNode | null = nextEffect.sibling;
-// 				if (sibling !== null) {
-// 					nextEffect = sibling;
-// 					break up;
-// 				}
-// 				// 向上
-// 				nextEffect = nextEffect.return;
-// 			}
-// 		}
-// 	}
-// };
-
 function commitLayoutEffectsOnFiber(
 	finishedWork: FiberNode,
 	root: FiberRootNode

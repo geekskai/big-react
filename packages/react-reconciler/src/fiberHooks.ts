@@ -277,6 +277,7 @@ function updateWorkInProgressHook(): Hook {
 		if (current !== null) {
 			nextCurrentHook = current?.memoizedState;
 		} else {
+			// current 为null 代表mount 阶段，不应该进入这个逻辑的，可能是一些边界情况
 			nextCurrentHook = null;
 		}
 	} else {
@@ -303,7 +304,7 @@ function updateWorkInProgressHook(): Hook {
 	};
 
 	if (workInProgressHook === null) {
-		// mount时 第一个hook
+		// update 时 第一个hook
 		if (currentlyRenderingFiber === null) {
 			throw new Error('请在函数组件内调用hook');
 		} else {
@@ -311,7 +312,7 @@ function updateWorkInProgressHook(): Hook {
 			currentlyRenderingFiber.memoizedState = workInProgressHook;
 		}
 	} else {
-		// mount时 后续的hook,为了行成一个单向的链表
+		// update 时 后续的hook,为了行成一个单向的链表
 		workInProgressHook.next = newHook;
 		workInProgressHook = newHook;
 	}
@@ -400,7 +401,7 @@ function mountWorkInProgressHook(): Hook {
 			currentlyRenderingFiber.memoizedState = workInProgressHook;
 		}
 	} else {
-		// mount时 后续的hook,为了行成一个单向的链表
+		// mount时 后续的hook,为了行成一个单向的链表,存在memoizedState上
 		workInProgressHook.next = hook;
 		workInProgressHook = hook;
 	}

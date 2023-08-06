@@ -4,20 +4,37 @@ import ReactDOM from 'react-dom';
 // import ReactDOM from 'react-noop-renderer';
 
 function App() {
-	const [num, update] = useState(100);
+	const [num, update] = useState(0);
 	return (
-		<ul onClick={() => update(50)}>
-			{new Array(num).fill(0).map((_, i) => (
+		<ul onClick={() => update(num + 1)}>
+			<>
+				<li>1</li>
+				<li>2</li>
+				{num % 2 === 0 ? (
+					<div>
+						<Child>child</Child>
+						<b>yes</b>
+					</div>
+				) : (
+					<li>
+						<s>no</s>
+					</li>
+				)}
+			</>
+			<li>3</li>
+			<li>4</li>
+
+			{/* {new Array(num).fill(0).map((_, i) => (
 				<Child key={i}>{i}</Child>
-			))}
+			))} */}
 		</ul>
 	);
 }
 
 function Child({ children }) {
-	const now = performance.now();
-	while (performance.now() - now < 4) {}
-	return <li>{children}</li>;
+	// const now = performance.now();
+	// while (performance.now() - now < 4) {}
+	return <i>{children}</i>;
 }
 
 // const root = ReactDOM.createRoot();

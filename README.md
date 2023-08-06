@@ -630,3 +630,10 @@ function appendPlacementNodeIntoContainer(
 
 1. beginWork阶段，就是递归过程中使用DFS遍历，从root顶部根节点往下子节点归的过程，这个过程中会通过ReactElement生成与之对应的子fiber节点，同时给fiber打上是移动，还是删除等标记，直到往下归到最后的节点child为null的时候，递阶段结束此时一颗完整的 workInProgress 树也生成了，接下来就开始进入了归的complete的阶段
 2. complete阶段是从最底部的fiber节点开始向上归的过程，在这个过程中收集在递阶段的fiber节点是否有打上标记的flags,根据对应的flags,执行实质性的DOM操作进行渲染。
+
+## hooks
+
+1. 如何让hooks拥有感知上下文的能力呢？
+2. 一个hook 如何知道他是在另外一个上下文中执行的呢？
+
+在不同的上下文中，执行的hooks 不是同一个函数
