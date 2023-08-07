@@ -58,8 +58,8 @@ function prepareFreshStack(root: FiberRootNode, lane: Lane) {
 	wipRootRenderLane = lane;
 }
 
+// 入口 调度功能
 export function scheduleUpdateOnFiber(fiber: FiberNode, lane: Lane) {
-	// TODO: 调度功能
 	const root = markUpdateFromFiberToRoot(fiber);
 	markRootUpdated(root, lane);
 	ensureRootIsScheduled(root);
