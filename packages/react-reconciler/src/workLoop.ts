@@ -60,6 +60,11 @@ function prepareFreshStack(root: FiberRootNode, lane: Lane) {
 
 // 入口 调度功能
 export function scheduleUpdateOnFiber(fiber: FiberNode, lane: Lane) {
+	/**
+	 * 为啥要先获取root呢？
+	 * 因为任意一次更新，都是需要从hostRootFiber开始调度的，但是更新不一定只发生在root组件中，也有可能发生在其他任意组件中，
+	 * 所以只要发生更新，就需要从当前组件的fiber开始向上查找，直到找到 hostRootFiber
+	 */
 	const root = markUpdateFromFiberToRoot(fiber);
 	markRootUpdated(root, lane);
 	ensureRootIsScheduled(root);
